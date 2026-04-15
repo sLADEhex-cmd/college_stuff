@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shreyas Sudarshan</title>
+  <link rel="stylesheet" href="shreyas_style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAV DOTS -->
+  <nav class="nav-dots">
+    <a href="#slide-1" class="dot active" data-label="Home"></a>
+    <a href="#slide-2" class="dot" data-label="About"></a>
+    <a href="#slide-3" class="dot" data-label="Role"></a>
+    <a href="#slide-4" class="dot" data-label="Contact"></a>
+  </nav>
+
+  <!-- SLIDE 1 — NAME -->
+  <section class="slide" id="slide-1">
+    <div class="noise"></div>
+    <div class="grid-lines"></div>
+    <div class="slide-content center">
+      <p class="eyebrow">— welcome —</p>
+      <h1 class="name-title">
+        <span class="name-first">Shreyas</span>
+        <span class="name-last">Sudarshan</span>
+      </h1>
+      <div class="underline-bar"></div>
+      <p class="tagline">Crafting elegant solutions, one line at a time.</p>
+      <a href="#slide-2" class="scroll-cta">
+        <span>Scroll Down</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+    <div class="circle-deco c1"></div>
+    <div class="circle-deco c2"></div>
+  </section>
+
+  <!-- SLIDE 2 — ROLL / CLASS -->
+  <section class="slide" id="slide-2">
+    <div class="noise"></div>
+    <div class="slide-content center">
+      <p class="eyebrow mono">// student_info.json</p>
+      <div class="info-card">
+        <div class="info-row">
+          <span class="info-key">Roll Number</span>
+          <span class="info-value accent">460</span>
+        </div>
+        <div class="divider-line"></div>
+        <div class="info-row">
+          <span class="info-key">Class</span>
+          <span class="info-value accent">SY COMP</span>
+        </div>
+        <div class="divider-line"></div>
+        <div class="info-row">
+          <span class="info-key">Status</span>
+          <span class="info-value green">Learning</span>
+        </div>
+      </div>
+      <div class="bracket-left">{</div>
+      <div class="bracket-right">}</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3 — ROLE -->
+  <section class="slide" id="slide-3">
+    <div class="noise"></div>
+    <div class="slide-content center">
+      <p class="eyebrow">Currently</p>
+      <div class="role-block">
+        <p class="role-aspiring">Aspiring</p>
+        <h2 class="role-title">
+          <span class="role-line">Embedded</span>
+          <span class="role-line outline">Systems</span>
+          <span class="role-line">Engineer</span>
+        </h2>
+      </div>
+      <div class="skills-row">
+        <span class="skill-tag">C / C++</span>
+        <span class="skill-tag">Arduino</span>
+        <span class="skill-tag">RTOS</span>
+        <span class="skill-tag">Microcontrollers</span>
+        <span class="skill-tag">PCB Design</span>
+      </div>
+    </div>
+    <div class="diagonal-stripe"></div>
+  </section>
+
+  <!-- SLIDE 4 — CONTACT -->
+  <section class="slide" id="slide-4">
+    <div class="noise"></div>
+    <div class="slide-content center">
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="contact-title">Say Hello<span class="dot-accent">.</span></h2>
+      <p class="contact-sub">Have a project in mind? Let's talk about it.</p>
+      <div class="email-display">
+        <svg class="email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="M2 7l10 7 10-7"/>
+        </svg>
+        <a href="mailto:shreyas24comp@student.gmail.com" class="email-link">shreyas24comp@student.gmail.com</a>
+      </div>
+      <p class="footer-sig">© 2025 Shreyas Sudarshan · SY COMP · Roll 461</p>
+    </div>
+  </section>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          dots.forEach(d => d.classList.remove('active'));
+          const active = document.querySelector(`.dot[href="#${id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+    slides.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
